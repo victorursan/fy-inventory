@@ -1,6 +1,6 @@
-#Fy Inventory Design
+# Fy Inventory Design
 
-##Short description
+## Short description
 To keep track of the stock changes in a `realtime` manner,  I chose to design an `Event Sourcing` solution.
 Brands (artists included) and customers would communicate 
  - with an API (reverse proxy) that would identify the client via the Authentication service like Google/Facebook/Twitter and check in the clients table the fy_id (unique identifier for a client) and its role(which brand/ customer)
@@ -72,18 +72,18 @@ Brands (artists included) and customers would communicate
     - queries the clients db to find the brand’s email  for that SKU
     - sends the email to the customer
 
-##Assumptions
+## Assumptions
  - The stock of an item is decreased when a customer orders an item and not when the brand confirms the order
  - An item being shipped or returned doesn’t impact the stock
  - If an item is returned the brand will have to notify us “a new stock for product”
  - All the “new stock for a product” events contains the delta compared with the previous value
  - SKUs are unique between brands, if not, the brands id would be prepended to theirs sku
 
-##Diagram
+## Diagram
 ![alt text](service-diagram.jpg "Service Diagram")
 
 
-##Deploy & testing
+## Deploy & testing
  - I would use a CI/CD flow from GitLab
     - push code -> build -> unit test -> integration test -> deploy on staging
  - I would deploy it as jars or docker containers
@@ -92,6 +92,6 @@ Brands (artists included) and customers would communicate
  - because most of the logic is around the `Event Store` (eg. Kafka) I would focus on integration tests for the  inventory-monitor, inventory-updater
  - I would use `midje` or `clojure test`
  
-##Project structure
+## Project structure
  - I would split the application into small services as presented on the diagram, but for the sake of brevity I present it hear as a single app which can be split over time.
   

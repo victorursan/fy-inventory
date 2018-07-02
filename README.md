@@ -1,4 +1,4 @@
-#Fy! Technical Task
+# Fy! Technical Task
 
 Fy! is building an at-scale platform to combine millions of products from artists and brands within one addictive shopping experience. Brands work with Fy! on a dropship model, where they ship orders out directly from their own warehouse when a customer orders on the Fy! app.
 
